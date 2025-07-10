@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineStore } from "rc-extended/store";
+import { defineStore, Store } from "rc-extended/store";
 import { supabase } from "./supabase";
 
 type State = {
@@ -68,6 +68,14 @@ const useUserStore = defineStore('user', {
             }
         }
     }
+}) as (() => Store<State, {
+    setUser: (data: State) => void;
+    logOut: (cb: () => any) => Promise<void>;
+}> & State & {
+    setUser: (data: State) => void;
+    logOut: (cb: () => any) => Promise<void>;
+    user: Record<string, any> | null;
+    tweets: any[];
 })
 
 export {

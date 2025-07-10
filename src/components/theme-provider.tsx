@@ -39,19 +39,19 @@ export function ThemeProvider({
   });
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    // const root = window.document.documentElement;
 
-    root.classList.remove("light", "dark");
+    // root.classList.remove("light", "dark");
 
-    console.log(theme, theme.peek(), colorScheme.value);
-    if ((theme.peek()?.theme || colorScheme.value) === "system") {
-      const systemTheme = colorScheme.value;
+    // console.log(theme, theme.peek(), colorScheme.value);
+    // if ((theme.peek()?.theme || colorScheme.value) === "system") {
+    //   // const systemTheme = colorScheme.value;
 
-      root.classList.add(systemTheme);
-      return;
-    }
+    //   // root.classList.add(systemTheme);
+    //   return;
+    // }
 
-    root.classList.add(theme.peek()?.theme || colorScheme.value);
+    // root.classList.add(theme.peek()?.theme || colorScheme.value);
   }, []);
 
   const value = {

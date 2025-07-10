@@ -1,5 +1,6 @@
 import './App.css'
 import { ErrorBoundary } from "rc-extended/components"
+import { useElementSize } from 'rc-extended/use'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -8,16 +9,16 @@ import { Guard } from './lib/Guard'
 import { LoginForm } from './pages/auth/login'
 import { SignUpComponent } from './pages/auth/sign-in'
 import { cn } from './lib/utils'
-import { useElementSize } from 'rc-extended/use'
-import { lazy } from 'react'
+import { lazy, useId } from 'react'
 
 const HomeComponent = lazy(() => import('./pages/home'))
 
 function App() {
   const { width } = useElementSize(document.body)
+  const xx = useId()
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark" storageKey="rc-extended-example">
+      <ThemeProvider defaultTheme="light" storageKey={`theme-${xx}`}>
         <main className={cn("min-w-screen min-h-screen md:mx-auto dark:bg-[#121212] max-w-[1440px]", width < 760 && "h-screen relative overflow-x-hidden overflow-y-scroll no-scrollbar")}>
           <Toaster />
           <BrowserRouter>

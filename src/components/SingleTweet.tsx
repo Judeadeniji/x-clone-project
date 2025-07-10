@@ -8,7 +8,6 @@ import {
   MoreHorizontalIcon,
   Repeat2Icon,
   Share2Icon,
-  SpeakerIcon,
   UserX2Icon,
 } from "lucide-react";
 import { Show } from "rc-extended/components";
@@ -121,6 +120,7 @@ export default function SingleTweet({
 }: {
   size?: [number, Signal<{ [key: number]: number }>];
 }) {
+
   const isHovering = $signal(false);
   const br = useBreakPoint(undefined, {
     MOBILE: 768,

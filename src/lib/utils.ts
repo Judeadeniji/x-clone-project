@@ -14,6 +14,7 @@ export const guardCtx = createContext<ReturnType<typeof useAuthStorage> | null>(
 
 export function useAuthStorage() {
   const store = useUserStore()
+  console.log(store)
   return {
     get value(): { authenticated: boolean } {
       return {
@@ -21,7 +22,7 @@ export function useAuthStorage() {
       }
     },
     get user() {
-      return store.session.user
+      return store.session?.user
     }
   }
 }

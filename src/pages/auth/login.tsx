@@ -54,6 +54,7 @@ export function LoginForm() {
             });
             console.log(res);
 
+            //@ts-expect-error data is not null
             setUser(res?.data);
 
             isPending.value = false;
